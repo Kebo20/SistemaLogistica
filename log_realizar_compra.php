@@ -73,10 +73,10 @@ $lista_sucursales2 = $osucursal->ListarTodoSucursal();
             <td width="15%"><b>Tipo de doc.</b>
                 <select id="tipo_documento" class="input " onchange="ChangeTipoDoc()" style="width:95%">
                     <option value="">Seleccione</option>
-                    <option value="02">FA</option>
-                    <option value="04">BV</option>
+                    <option value="2">FA</option>
+                    <option value="4">BV</option>
 
-                    <option value="03">RH</option>
+                    <option value="3">RH</option>
                     <option value="10">GR</option>
                 </select></td>
             <td width="15%"><b>N° de doc.</b>

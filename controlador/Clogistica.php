@@ -704,7 +704,7 @@ switch ($_GET["op"]) {
                 . "<td >$c[0]</td>"
                 . "<td align='center' >$bonificacion</td>"
                 . "<td align='center'>$c[5] </td>"
-                . "<td class='text-right'>$c[12]  </td>"
+                . "<td class='text-right'>$c[13]  </td>"
                 . "<td class='text-right'>$c[7]  </td>"
                 . "<td class='text-right'>S/." . $c[8] . "  </td>"
                 . "<td class='text-right' >S/." . $c[9] . "  </td>"

@@ -9,7 +9,7 @@
 require_once('cado/ClaseLogistica.php');
 
 $olog = new Logistica();
-$lista_reactivos = $olog->ListarProductoLog("", 0, 1000);
+$lista_reactivos = $olog->ListarReactivos();
 
 
 ?>
@@ -52,8 +52,7 @@ $lista_reactivos = $olog->ListarProductoLog("", 0, 1000);
                         <?php } ?>
                     </select>
                 </span></td>
-            <td width="50%"> <button type="button" class="btn btn-primary" onclick="javascript:abrirModal()">Nuevo </button>
-            </td>
+            
         </tr>
     </table>
 </div>

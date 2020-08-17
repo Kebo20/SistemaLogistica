@@ -164,9 +164,9 @@ $("#OCbuscar-id_cmb_suc").change(function() {
 //BOTONES
 
 $("#OCbtn_guardar,#OCbtn_imprimir,#OCbtn_limpiar,#OCbtn_finalizar,#OCbtn_anular").attr("disabled", "true");
-$(".input").attr("disabled", "true");
+$("input,select").attr("disabled", "true");
 $("#OCbtn_nuevo").click(function() {
-    $("#OCbtn_guardar,.input").attr("disabled", false);
+    $("#OCbtn_guardar,input,select").attr("disabled", false);
     $("#OCbtn_buscar,#OCusuario").attr("disabled", "true")
     $("#OCid_cmb_suc").select2('open');
 
@@ -291,6 +291,7 @@ function OCAñadirDetalle() {
 
         if (orden_compra[i].id_producto == id_producto) {
             orden_compra[i].cantidad = parseInt(orden_compra[i].cantidad) + parseInt(cantidad);
+            orden_compra[i].pendiente = parseInt(orden_compra[i].pendiente) + parseInt(cantidad);
             OClistar();
 
             $("#OCcantidad").val("");

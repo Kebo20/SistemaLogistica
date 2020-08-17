@@ -14,7 +14,7 @@ $osucursal = new Contabilidad();
 $olog = new Logistica();
 $lista_sucursales = $osucursal->ListarTodoSucursal();
 
-$lista_reactivos = $olog->ListarProductoLog("",0,1000);
+$lista_reactivos = $olog->ListarReactivos();
 $lista_maquinas = $olog->ListarMaquinas('', '0', '1000');
 
 

@@ -175,6 +175,15 @@ class Logistica
         $ejecutar = $ocado->ejecutar($sql);
         return $ejecutar;
     }
+    function ListarReactivos()
+    {
+        $ocado = new cado();
+        $sql = "select p.*,c.nombre as categoria,if(p.tipo_producto='0','PRODUCTO','SERVICIO') as tipo ,u.codigo as codigo_unidad,u.descripcion as descripcion_unidad from log_producto p 
+        inner join log_categoria_producto c on c.id=p.id_categoria inner join log_codigo_unidad_medida u on p.unidad=u.id
+         where c.id=13 and p.estado=0  order by p.nombre asc ";
+        $ejecutar = $ocado->ejecutar($sql);
+        return $ejecutar;
+    }
 
     function ListarProductoTipo($tipo, $categoria)
     {
@@ -510,7 +519,7 @@ class Logistica
     function ListarOrdenComprDetalles($id)
     {
         $ocado = new cado();
-        $sql = "select o.*,p.nombre,p.tipo_producto from log_orden_compra_detalle o inner join log_producto p on p.id=o.id_producto where id_orden_compra=$id ;";
+        $sql = "select o.*,p.nombre,p.tipo_producto,lu.descripcion nombre_unidad from log_orden_compra_detalle o inner join log_producto p on p.id=o.id_producto inner join log_codigo_unidad_medida lu on lu.id=p.unidad where id_orden_compra=$id ;";
         $ejecutar = $ocado->ejecutar($sql);
         return $ejecutar;
     }
@@ -887,10 +896,10 @@ class Logistica
     function ListarOrdDoc($nombre, $inicio, $fin)
     {
         $ocado = new cado();
-        $sql = "SELECT p.nombre,oc.numero,l.cant_orden,c.tipo_documento,c.nro_documento,l.cant_compra from log_orden_documento l 
+        $sql = "SELECT p.nombre,oc.numero,l.cant_orden,c.tipo_documento,concat(td.descripcion, ' - ',c.nro_documento)nro_documento,l.cant_compra from log_orden_documento l 
       inner join log_producto p on l.id_producto=p.id inner join log_orden_compra oc on l.id_orden_compra=oc.id
-       inner join log_compra c on l.id_compra=c.id "
-            . "where  p.nombre like '%$nombre%' or c.nro_documento like '%$nombre%' or oc.numero like '%$nombre%' order by l.id desc limit $inicio,$fin  ";
+       inner join log_compra c on l.id_compra=c.id inner join log_tipo_documento td on  td.id=c.tipo_documento
+       where  p.nombre like '%$nombre%' or c.nro_documento like '%$nombre%' or oc.numero like '%$nombre%' order by l.id desc limit $inicio,$fin  ";
         $ejecutar = $ocado->ejecutar($sql);
         return $ejecutar;
     }
@@ -1190,7 +1199,7 @@ class Logistica
     function ListarExamenReactivo($id_examen)
     {
         $ocado = new cado();
-        $sql = "SELECT exr.id,r.nombre,exr.cantidad ,exr.id_examen from examen_reactivo exr inner join reactivo r on r.id=exr.id_reactivo where exr.id_examen=$id_examen and exr.estado='0'  ";
+        $sql = "SELECT exr.id,r.nombre,exr.cantidad ,exr.id_examen from examen_reactivo exr inner join log_producto r on r.id=exr.id_reactivo where exr.id_examen=$id_examen and exr.estado='0'  ";
         $listar = $ocado->ejecutar($sql);
         return $listar;
     }
@@ -1231,7 +1240,8 @@ class Logistica
             $ocado = new cado();
             $cn = $ocado->conectar();
             $cn->beginTransaction(); //inicia una transacción
-            $sql = "update examen_reactivo set estado='1' where id='$id'  ";
+            //$sql = "update examen_reactivo set estado='1' where id='$id'  ";
+            $sql="DELETE from examen_reactivo where id= $id;";
             $cn->prepare($sql)->execute();
             $cn->commit(); //consignar cambios
             $cn = null;

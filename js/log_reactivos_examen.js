@@ -81,6 +81,18 @@ function Listar(pagina) {
     });
 }
 
+
+function detalles(id_examen,nombre) {
+    $reactivos.val("").change()
+    $("#exr_id_examen").val(id_examen)
+    $("#nombre_examen").html(nombre)
+
+    Listar_detalles(id_examen)
+    $("#exr_nombre").focus()
+    $("#ModalDetalles").modal("show");
+
+}
+
 function Listar_detalles(id_examen) {
 
 
@@ -121,15 +133,6 @@ function Listar_detalles(id_examen) {
 
 
 
-function detalles(id_examen,nombre) {
-    $("#ModalDetalles").modal("show");
-    $("#exr_id_examen").val(id_examen)
-    $("#nombre_examen").html(nombre)
-
-    Listar_detalles(id_examen)
-    $("#exr_nombre").focus()
-
-}
 function editar(id) {
     $("#ModalDetalles").modal("show");
     $("#exr_id_examen").val(id_examen)
@@ -189,6 +192,7 @@ $("#formRegistrar").on("submit", function (e) {
 
             console.log(data);
             $('#formRegistrar').trigger("reset");
+            $reactivos.val("").change()
             if (data == 1) {
 
                 swal("Datos registrados Correctamente ..", "Felicitaciones", "success");

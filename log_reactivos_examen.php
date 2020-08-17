@@ -9,7 +9,7 @@
 require_once('cado/ClaseLogistica.php');
 
 $olog = new Logistica();
-$lista_reactivos = $olog->ListarProductoLog("", 0, 1000);
+$lista_reactivos = $olog->ListarReactivos();
 
 
 ?>
@@ -29,7 +29,8 @@ $lista_reactivos = $olog->ListarProductoLog("", 0, 1000);
         <tbody id="lista" style="font-size:12px;"></tbody>
 
     </table>
-    <div id="paginacion" align='right'>
+    
+    <div id="paginacion" >
 
     </div>
 
@@ -44,8 +45,7 @@ $lista_reactivos = $olog->ListarProductoLog("", 0, 1000);
                     <input type="text" id="buscar" placeholder=" Buscar " class="form-control" onkeyup="javascript:Listar(1)" autocomplete="off" />
                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                 </span></td>
-            <td width="50%"> <button type="button" class="btn btn-primary" onclick="javascript:abrirModal()">Nuevo </button>
-            </td>
+            
         </tr>
     </table>
 </div>
@@ -91,7 +91,7 @@ $lista_reactivos = $olog->ListarProductoLog("", 0, 1000);
 
                             <tr>
 
-                                <td width='50%'>
+                                <td width='45%'>
                                     <input type="hidden" id="exr_id" name="id">
                                     <input type="hidden" id="exr_id_examen" name="id_examen">
 
@@ -104,18 +104,18 @@ $lista_reactivos = $olog->ListarProductoLog("", 0, 1000);
                                     </select>
 
                                 </td>
-                                <td width='40%'>
-                                    <input id="exr_cantidad" name="cantidad" required type='number' class="input" placeholder="Ingrese cantidad">
+                                <td width='43%'>
+                                    <input id="exr_cantidad" name="cantidad" required type='number' class="form-control" placeholder="Ingrese cantidad">
 
                                 </td>
+                                <td width='2%'><span> </span></td>
                                 <td width='10%'>
-                                    <button class="btn grey btn-outline-secondary" type="submit">
+                                    <button class="btn btn-white btn-info btn-bold  " type="submit">
                                         <i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>Añadir</button>
                                 </td>
 
 
                             </tr>
-
 
                         </table>
                     </form>
@@ -139,10 +139,9 @@ $lista_reactivos = $olog->ListarProductoLog("", 0, 1000);
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-white btn-info btn-bold  " type="submit">
-                        <i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>Grabar</button>
+                    
                     <button class="btn btn-white btn-info btn-bold  " type="reset" data-dismiss="modal">
-                        <i class="ace-icon fa fa-times red2"></i>Cancelar</button>
+                        <i class="ace-icon fa fa-times red2"></i>Cerrar</button>
                 </div>
             </div>
         </div>

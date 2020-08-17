@@ -703,7 +703,7 @@
                     for (var i = 0; i < detalles.length; i++) {
 
                         $("#IdCuerpoECbuscardetalle").append("<tr><td>" + parseInt(i + 1) + "</td><td>" + detalles[i].nombre + "</td><td>" +
-                            detalles[i].cantidad + "</td><td>" + detalles[i].unidad + "</td><td>" +
+                            detalles[i].cantidad + "</td><td>" + detalles[i].nombre_unidad + "</td><td>" +
                             detalles[i].despachado + "</td><td>" + detalles[i].pendiente + "</td></tr>");
 
                     }
@@ -777,7 +777,7 @@
                         orden: "1",
                         cantidad_orden: detalles[i].pendiente,
                         cantidad: "0",
-                        unidad: detalles[i].unidad,
+                        unidad: detalles[i].nombre_unidad,
                         precio: "0",
                         precio_sin_igv: "0",
                         monto_igv: "0",
