@@ -207,15 +207,18 @@ $lista_sucursales2 = $osucursal->ListarTodoSucursal();
     <br>
     <div class="row">
 
-        <div class="col-lg-8 col-md-12 ">
+        <div class="col-lg-9 col-md-12 ">
             <table width="100%" style="font-size:12px; font-weight:bold;">
 
                 <tr>
-                    <td><b>Monto sin IGV(S/.)</b><input id="monto_sin_igv" disabled="" style="font-size:12px; text-align:right;width:95%" class='form-control' autocomplete="off"></td>
-                    <td colspan=""><b>Monto IGV(S/.)</b><input disabled="" id="monto_igv_total" style="font-size:12px;text-align:right;  width:95%" class='form-control' autocomplete="off"></td>
-                    <td colspan=""><b>IGV</b><input disabled="" id="igv" style="font-size:12px;text-align:right;  width:95%" class='form-control' autocomplete="off"></td>
+                    <td><b>SUB. TOTAL(S/.)</b><input id="monto_sin_igv" disabled="" style="font-size:12px; text-align:right;width:95%" class='form-control' autocomplete="off"></td>
+                    <td><b>INAFECTA(S/.)</b><input value="0.00" id="inafecta" disabled="" style="font-size:12px; text-align:right;width:95%" class='form-control' autocomplete="off"></td>
+                    <td><b>GRATUITA(S/.)</b><input value="0.00" id="gratuita" disabled="" style="font-size:12px; text-align:right;width:95%" class='form-control' autocomplete="off"></td>
 
-                    <td colspan=""><b>Total(S/.)</b><input disabled="" id="total" style="font-size:12px;text-align:right;  width:95%" class='form-control' autocomplete="off"></td>
+                    <td colspan=""><b>IGV(S/.)</b><input disabled="" id="monto_igv_total" style="font-size:12px;text-align:right;  width:95%" class='form-control' autocomplete="off"></td>
+                    <td colspan=""><b>IGV(%)</b><input disabled="" id="igv" style="font-size:12px;text-align:right;  width:95%" class='form-control' autocomplete="off"></td>
+
+                    <td colspan=""><b>TOTAL(S/.)</b><input disabled="" id="total" style="font-size:12px;text-align:right;  width:95%" class='form-control' autocomplete="off"></td>
 
                 </tr>
 
@@ -223,7 +226,7 @@ $lista_sucursales2 = $osucursal->ListarTodoSucursal();
             </table>
         </div>
 
-        <div class="col-lg-4 col-md-12 ">
+        <div class="col-lg-3 col-md-12 ">
             <div class="form-group">
                 <br>
                 <button type="button" class="btn btn-white btn-info btn-bold" onClick="guardar()"><i class="fa fa-save"></i> Guardar</button>

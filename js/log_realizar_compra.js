@@ -253,11 +253,13 @@ function listar() {
         if ($("#igv_detalle").prop("checked")) {
             compra[i].precio_sin_igv = (Math.round((compra[i].precio * (100 / 118)) * 100) / 100).toFixed(2);
             compra[i].monto_igv = (Math.round(compra[i].precio * (18 / 118) * 100) / 100).toFixed(2);
-            compra[i].subtotal = (Math.round((compra[i].precio_sin_igv * compra[i].cantidad) * 100) / 100).toFixed(2);
+            //compra[i].subtotal = (Math.round((compra[i].precio_sin_igv * compra[i].cantidad) * 100) / 100).toFixed(2);
+            compra[i].subtotal =(Math.round((parseFloat(compra[i].precio_sin_igv)+parseFloat(compra[i].monto_igv)) * 100) / 100).toFixed(2);;
         } else {
             compra[i].precio_sin_igv = (Math.round(compra[i].precio * 100) / 100).toFixed(2);
             compra[i].monto_igv = (Math.round(compra[i].precio * (0.18) * 100) / 100).toFixed(2);
-            compra[i].subtotal = (Math.round((parseFloat(compra[i].precio_sin_igv * compra[i].cantidad)) * 100) / 100).toFixed(2);
+            //compra[i].subtotal = (Math.round((parseFloat(compra[i].precio_sin_igv * compra[i].cantidad)) * 100) / 100).toFixed(2);
+            compra[i].subtotal =(Math.round((parseFloat(compra[i].precio_sin_igv)+parseFloat(compra[i].monto_igv)) * 100) / 100).toFixed(2);;
         }
 
         if (compra[i].bonificacion == '0') {
@@ -629,11 +631,15 @@ function DividirListar() {
         if ($("#igv_detalle").prop("checked")) {
             dividir[i].precio_sin_igv = (Math.round((dividir[i].precio * (100 / 118)) * 100) / 100).toFixed(2);
             dividir[i].monto_igv = (Math.round(dividir[i].precio * (18 / 118) * 100) / 100).toFixed(2);
-            dividir[i].subtotal = (Math.round((dividir[i].precio_sin_igv * dividir[i].cantidad) * 100) / 100).toFixed(2);
+            //dividir[i].subtotal = (Math.round((dividir[i].precio_sin_igv * dividir[i].cantidad) * 100) / 100).toFixed(2);
+            dividir[i].subtotal =(Math.round((parseFloat(dividir[i].precio_sin_igv)+parseFloat(dividir[i].monto_igv)) * 100) / 100).toFixed(2);;
+
         } else {
             dividir[i].precio_sin_igv = (Math.round(dividir[i].precio * 100) / 100).toFixed(2);
             dividir[i].monto_igv = (Math.round(dividir[i].precio * (0.18) * 100) / 100).toFixed(2);
-            dividir[i].subtotal = (Math.round((parseFloat(dividir[i].precio_sin_igv * dividir[i].cantidad)) * 100) / 100).toFixed(2);
+            //dividir[i].subtotal = (Math.round((parseFloat(dividir[i].precio_sin_igv * dividir[i].cantidad)) * 100) / 100).toFixed(2);
+            dividir[i].subtotal =(Math.round((parseFloat(dividir[i].precio_sin_igv)+parseFloat(dividir[i].monto_igv)) * 100) / 100).toFixed(2);;
+
         }
 
 
